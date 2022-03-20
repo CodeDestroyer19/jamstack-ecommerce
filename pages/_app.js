@@ -1,6 +1,6 @@
-import '../styles/globals.css'
-import Layout from '../layouts/layout'
-import fetchCategories from '../utils/categoryProvider'
+import "../styles/globals.css"
+import Layout from "../layouts/layout"
+import fetchCategories from "../utils/categoryProvider"
 
 function Ecommerce({ Component, pageProps, categories }) {
   return (
@@ -11,9 +11,9 @@ function Ecommerce({ Component, pageProps, categories }) {
 }
 
 Ecommerce.getInitialProps = async () => {
-  const categories = await fetchCategories()
+  const categories = await fetchCategories("http://localhost:3000/")
   return {
-    categories
+    categories,
   }
 }
 

@@ -1,4 +1,4 @@
-import inventory from './inventory'
+import inventory from "./inventory"
 
 /*
 Inventory items should adhere to the following schema:
@@ -15,11 +15,14 @@ type Product {
 }
 */
 
-async function fetchInventory() {
-  // const inventory = API.get(apiUrl)
-  return Promise.resolve(inventory)
+async function fetchInventory(Origin) {
+  console.log(Origin)
+
+  const inventory = await fetch(Origin + "api/prices/getPrices", {
+    method: "GET",
+  }).then((result) => result.json())
+
+  return Promise.resolve(inventory.result)
 }
 
-export {
-  fetchInventory, inventory as staticInventory
-}
+export { fetchInventory, inventory as staticInventory }
